@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>ExpressCars</title>
+        <h:outputStylesheet name="Style.css"/>
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <header class="container__header" >
+                ExpressCars   
+                <img src="resources/key.jpeg" alt="key" width="65" height="56"/>
+            </header>
+            <div class="nav_bar">
+                <h:link value ="Home" outcome="index.xhtml"/>
+                <h:link value =" Rent a Car" outcome="Rent"/>
+                <h:link value = "Manage Booking" outcome = "manageBooking" />
+                <h:link value = "About Us" outcome ="AboutUs.xhtml"/>
+            </div>
+            <main class="container__main">
+                #{CarBean.getCar(bookingBean.carID)}
+                <div class="centerme">
+                    <h:form class="form">
+                        <h1>Manage Your Booking</h1>
+                        <h:panelGrid columns="2"  >
+                            <h:outputText value="First name: "/>
+                            <h:inputText id="firstNameInputText" required="true"
+                                         requiredMessage="This field cannot be left empty. Please enter your First name" 
+                                         validatorMessage="Your First Name can only contain letters. Please try again."
+                                         value="#{bookingBean.firstName}"  maxlength="30">
+                                <f:validateRegex pattern="[a-zA-Z]+ *"/>
+                            </h:inputText>
+                            <br/>
+                            <h:message id ="firstNameMessage" for="firstNameInputText" styleClass="error"/>
+
+                            <h:outputText value="Last name: "/>
+                            <h:inputText id="lastNameInputText" required="true"
+                                         requiredMessage="This field cannot be left empty. Please enter your Last name" 
+                                         validatorMessage="Your Last Name can only contain letters. Please try again."
+                                         value="#{bookingBean.lastName}" maxlength="30">
+                                <f:validateRegex pattern="[a-zA-Z]+ *"/> 
+                            </h:inputText>
+                            <br/>
+                            <h:message id ="lastNameMessage"  for="lastNameInputText" styleClass="error"/>
+
+                            <h:outputText value="Email: "/>
+                            <h:inputText id="emailInputText" required="true" 
+                                         requiredMessage="This field cannot be left empty. Please enter your Email Address"
+                                         validatorMessage="This is not a valid email format. Please try again."
+                                         value="#{bookingBean.email}" maxlength="150">
+                                <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" />
+                            </h:inputText>
+                            <br/>
+                            <h:message id ="emailMessage" for="emailInputText" styleClass="error"/>
+
+                            <h:outputText value="Rental Date: "/>
+                            <h:inputText id="RentalDateInputText" required="true"
+                                         requiredMessage="This field cannot be left empty. Please enter the Rental Date" 
+                                         converterMessage="This is not a valid date format (dd/mm/yyyy). Please try again."
+                                         value="#{bookingBean.rentalDate}">
+                                <f:convertDateTime pattern = "dd/MM/yyyy"  />
+                            </h:inputText>
+                            <br/>
+                            <h:message id ="dateMessage" for="RentalDateInputText" styleClass="error"/>
+
+                            <h:outputText value="Number of days: "/>
+                            <h:inputText id="NoOfDaysInputText" required="true"
+                                         requiredMessage="Please enter Number of Days" 
+                                         validatorMessage="Please enter a number between 1 and 30" 
+                                         value="#{bookingBean.noOfDays}" maxlength="2">
+                                <f:validateDoubleRange minimum="1" maximum="30"/>  
+                            </h:inputText>
+                            <br/>
+                            <h:message id ="noOfDaysMessage" for="NoOfDaysInputText" styleClass="error"/>
+
+                            <h:outputText value="Car : "/>
+                            <h:inputText id="CarIDInputText" value="#{CarBean.description2()}" readonly="true" >
+                            </h:inputText> 
+                            <br/>
+                        </h:panelGrid>
+                        <h:commandButton value="Update"
+                                         action="#{bookingBean.update()}">
+                            <f:ajax execute="firstNameInputText lastNameInputText emailInputText RentalDateInputText NoOfDaysInputText"
+                                    render="firstNameMessage lastNameMessage emailMessage dateMessage noOfDaysMessage"/>
+                        </h:commandButton>
+                        <h:commandButton style="margin-top: 15px;"  value="Cancel"
+                                         action="booking">
+                        </h:commandButton>
+                    </h:form>
+                </div>
+            </main>
+        </div>
+
+        <footer class="prefooter">
+            <div>
+                <h3 class="pic"><img src="resources/cancelation.png" alt="cancel" width="57" height="63"/> </h3>
+            </div>
+            <div>
+                <h3 class="pic"><img src="resources/no card fees.png" alt="nofee" width="63" height="63"/></h3>
+            </div>    
+            <div>
+                <h3 class="pic"><img src="resources/customer care.png" alt="care" width="63" height="63"/></h3>
+            </div>
+        </footer>
+        <footer class="prefooter">
+            <div>
+                <h4>Free Cancellation</h4>
+            </div>
+            <div>
+                <h4>No Credit Card Fees</h4>
+            </div>    
+            <div>
+                <h4>24/7 Customer Care</h4>
+            </div>
+        </footer>
+
+        <footer class="container__footer">
+            <p>Created by Mateusz Pietryka</p>
+        </footer> 
+
+
+    </h:body>
+</html>

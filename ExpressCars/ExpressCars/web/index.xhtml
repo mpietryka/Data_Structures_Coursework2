@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+   <h:head>
+      <title>ExpressCars</title>
+      <h:outputStylesheet name="Style.css"/>
+   </h:head>
+    <h:body>
+
+
+        <div class="container">
+            <header class="container__header" >
+                <h:form>
+                ExpressCars   
+                <h:commandLink class="imageButton" action="allBookings.xhtml?faces-redirect=true">
+                    <h:graphicImage value="/resources/key.jpeg" width="65" height="56"/>
+                </h:commandLink>
+                </h:form>
+
+            </header>
+            <div class="nav_bar">
+                <h:link value ="Home" outcome="index.xhtml"/>
+                <h:link value =" Rent a Car" outcome="Rent"/>
+                <h:link value = "Manage Booking" outcome = "manageBooking" />
+                <h:link value = "About Us" outcome ="AboutUs.xhtml"/>
+
+            </div>
+            <main class="container__main">
+                <h2>Choose from hundreds of Cars Available!</h2>
+                <div class="card__layout">
+                    <div class="card">
+                        <div class="row1">
+                            <h2>Economy</h2>
+                        </div>
+                        <div class="row2">
+                            <h3>From £29/Day</h3>
+                        </div>
+                        <div class="row">
+                            <h3>Details:</h3>
+                            <p>5 People</p>
+                            <p>2 bags</p>
+                            <p>Manual</p>
+                            <h3>Features:</h3>
+                            <p>Air Conditioning</p>
+                            <p>Air Bags</p>
+                            <p>AM/FM Stereo Radio</p>
+                            <h3>Vauxhall Corsa or Similar</h3>
+                        </div>
+
+                    </div>
+                    <!-- Pricing column -->
+                    <div class="card">
+                        <div class="row1">
+                            <h2>Compact</h2>
+                        </div>
+                        <div class="row2">
+                            <h3>From £39/Day</h3>
+                        </div>
+                        <div class="row">
+                            <h3>Details:</h3>
+                            <p>5 People</p>
+                            <p>2 bags</p>
+                            <p>Automatic</p>
+                            <h3>Features:</h3>
+                            <p>Air Conditioning</p>
+                            <p>Air Bags</p>
+                            <p>AM/FM Stereo Radio</p>
+                            <h3>Vauxhall Astra or Similar</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+                        <div class="row1">
+                            <h2>Premium</h2>
+                        </div>
+                        <div class="row2">
+                            <h3>From £79/Day</h3>
+                        </div>
+                        <div class="row">
+                            <h3>Details:</h3>
+                            <p>5 People</p>
+                            <p>3 bags</p>
+                            <p>Manual</p>
+                            <h3>Features:</h3>
+                            <p>Air Conditioning</p>
+                            <p>Air Bags</p>
+                            <p>GPS </p>
+                            <h3>BMW Series 5 or Similar</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+            </main>
+            <h3>Our Fleet:</h3>
+            <div class="container__bottom">
+                <div class="carpic">
+                    <p>Vauxhall Corsa - Economy</p> 
+                    <img src="resources/VuxhallCorsaEconomy.jpeg" alt="corsa" />
+                </div>
+                <div class="carpic">
+                    <p>Vauxhall Astra - Compact</p> 
+                    <img src="resources/VauxhallAstraCompact.jpeg" alt="astra" />
+                </div>
+                <div class="carpic">
+                    <p>BMW Series 5 - Premium Class</p>
+                    <img src="resources/BMWS5Premium.jpeg" alt="s5" />
+                </div>           
+
+            </div>
+
+            <footer class="prefooter">
+                <div>
+                    <h3 class="pic"><h:graphicImage value="/resources/cancelation.png" width="57" height="63"/> </h3>
+                </div>
+                <div>
+                    <h3 class="pic"><h:graphicImage value="/resources/no card fees.png"  width="63" height="63"/></h3>
+                </div>    
+                <div>
+                    <h3 class="pic"><h:graphicImage value="/resources/customer care.png" width="63" height="63"/></h3>
+                </div>
+            </footer>
+            <footer class="prefooter">
+                <div>
+                    <h4>Free Cancellation</h4>
+                </div>
+                <div>
+                    <h4>No Credit Card Fees</h4>
+                </div>    
+                <div>
+                    <h4>24/7 Customer Care</h4>
+                </div>
+            </footer>
+
+            
+        </div>
+        <footer class="container__footer">
+                <p>Created by Mateusz Pietryka</p>
+            </footer> 
+    </h:body>
+
+
+
+</html>
+

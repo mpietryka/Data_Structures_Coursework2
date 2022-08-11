@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- index.html -->
+<!-- Displays an h:dataTable of the addresses in the address book -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+
+        <title>ExpressCars</title>
+        <h:outputStylesheet name="Style.css"/>
+    </h:head>
+    <h:body> 
+        <h1 style="text-align: center">All Bookings</h1>
+        <h:form>
+            <p><h:commandButton value="Back" action="index?faces-redirect=true"/></p>  
+        </h:form>
+        <div class="centerme">
+
+            <h:dataTable style="text-align: center; align-content: center" value="#{bookingBean.allBookings}" var="booking"
+                         rowClasses="oddRows,evenRows" headerClass="header"
+                         styleClass="table" cellpadding="5" cellspacing="0">
+                <h:column>
+                    <f:facet name="header">Booking ID</f:facet>
+                        #{booking.BOOKING_ID}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">First Name</f:facet>
+                        #{booking.FIRST_NAME}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Last Name</f:facet>
+                        #{booking.LAST_NAME}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email Address</f:facet>
+                        #{booking.EMAIL}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Car ID</f:facet>
+                        #{booking.CAR_ID}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Car Brand</f:facet>
+                        #{booking.CAR_BRAND}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Car Model</f:facet>
+                        #{booking.CAR_MODEL}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Rental Date</f:facet>
+                        #{booking.RENTAL_DATE}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Daily Rate</f:facet>
+                    £ #{booking.DAILY_RATE}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Number of Days</f:facet>
+                        #{booking.NO_OF_DAYS}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Total</f:facet>
+                    £#{booking.TOTAL}
+                </h:column>
+            </h:dataTable>
+        </div>
+    </h:body>
+</html>
+
+
+<!--
+**********************************************************************
+* (C) Copyright 1992-2012 by Deitel & Associates, Inc. and           *
+* Pearson Education, Inc. All Rights Reserved.                       *
+*                                                                    *
+* DISCLAIMER: The authors and publisher of this book have used their *
+* best efforts in preparing the book. These efforts include the      *
+* development, research, and testing of the theories and programs    *
+* to determine their effectiveness. The authors and publisher make   *
+* no warranty of any kind, expressed or implied, with regard to      *
+* these programs or to the documentation contained in these books.   *
+* The authors and publisher shall not be liable in any event for     *
+* incidental or consequential damages in connection with, or         *
+* arising out of, the furnishing, performance, or use of these       *
+* programs.                                                          *
+**********************************************************************
+-->
+

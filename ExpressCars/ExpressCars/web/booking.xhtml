@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>ExpressCars</title>
+        <h:outputStylesheet name="Style.css"/>
+    </h:head>
+    <h:body>
+
+
+        <div class="container">
+            <header class="container__header" >
+                ExpressCars   
+                <h:graphicImage value="/resources/key.jpeg" width="65" height="56"/>
+
+            </header>
+            <div class="nav_bar">
+                <h:link value ="Home" outcome="index.xhtml"/>
+                <h:link value =" Rent a Car" outcome="Rent"/>
+                <h:link value = "Manage Booking" outcome = "manageBooking" />
+                <h:link value = "About Us" outcome ="AboutUs.xhtml"/>
+
+            </div>
+            <main class="container__main">
+                
+                <h1 style="padding-top: 12px">Manage Your Booking</h1>
+                <div class="display">
+                    
+
+                    <h:dataTable value="#{bookingBean.one}" var="booking"
+                                 rowClasses="rows" headerClass="header"
+                                 styleClass="table" cellpadding="5" cellspacing="0">
+                        <h:column>
+                            <f:facet name="header">First Name</f:facet>
+                                #{booking.FIRST_NAME}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Last Name</f:facet>
+                                #{booking.LAST_NAME}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Email Address</f:facet>
+                                #{booking.EMAIL}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Car ID</f:facet>
+                                #{booking.CAR_ID}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Car Type</f:facet>
+                                #{booking.CAR_TYPE}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Car Brand</f:facet>
+                                #{booking.CAR_BRAND}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Car Model</f:facet>
+                                #{booking.CAR_MODEL}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Rental Date</f:facet>
+                            #{booking.RENTAL_DATE} 
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Number of Days</f:facet>
+                                #{booking.NO_OF_DAYS}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Total</f:facet>
+                            £ #{booking.TOTAL}
+                        </h:column>
+                    </h:dataTable>
+                    <h:form>
+                        <p><h:commandButton value="Edit" action="#{bookingBean.getBooking(bookingBean.bookingID)}"/></p>  
+                        <p><h:commandButton value="Cancel Booking" action="#{bookingBean.delete(bookingBean.bookingID)}"/></p>
+
+                    </h:form>
+                </div>
+            </main>
+
+            <footer class="prefooter">
+                <div>
+                    <h3 class="pic"><h:graphicImage value="/resources/cancelation.png" width="57" height="63"/> </h3>
+                </div>
+                <div>
+                    <h3 class="pic"><h:graphicImage value="/resources/no card fees.png"  width="63" height="63"/></h3>
+                </div>    
+                <div>
+                    <h3 class="pic"><h:graphicImage value="/resources/customer care.png" width="63" height="63"/></h3>
+                </div>
+            </footer>
+            <footer class="prefooter">
+                <div>
+                    <h4>Free Cancellation</h4>
+                </div>
+                <div>
+                    <h4>No Credit Card Fees</h4>
+                </div>    
+                <div>
+                    <h4>24/7 Customer Care</h4>
+                </div>
+            </footer>
+
+
+        </div>
+        <footer class="container__footer">
+            <p>Created by Mateusz Pietryka</p>
+        </footer> 
+    </h:body>
+
+
+
+</html>
+
+
